@@ -1,3 +1,5 @@
 metadata.db
+*.
+*~
 .gitignore~
 .ipynb_checkpoints
