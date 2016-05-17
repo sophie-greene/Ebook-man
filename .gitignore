@@ -3,3 +3,5 @@ metadata.db
 *~
 .gitignore~
 .ipynb_checkpoints
+__pycache__
+_*
