@@ -14,7 +14,7 @@ def find(pattern,path=os.getcwd()):
 #write a variable obj to file name
 def save_obj(obj, name ):
     with open( name + '.pkl', 'wb') as f:
-        pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
+        pickle.dump(obj, f)
         
 #read pickled variable
 def load_obj(name ):
