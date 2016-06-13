@@ -1,0 +1,6 @@
+#name file according to metadata
+find /media/some/sophie-hhd1/books/thrill/ -type f -iname "*.*" | parallel -j4 'a={};p="${a%/*}";f="${a##*/}";n="${f%.*}";ext="${f##*.}";meta="$(exiftool "$a")"; t="$(echo "$meta" | grep -i "Title                           :")";c="$(echo "$meta" | grep  "Creator                         :")"; echo "$a"..... "${c##*: } - ${t##*: }.$ext"'
+
+find /media/some/sophie-hhd1/transmitt/fic/#Calibre\ Fiction/ -type f -iname "*.mobi" -o -iname "*.epub" -o -iname "*.azw3" -o -iname "*.lit" | parallel -j20 'a={};p="${a%/*}";f="${a##*/}";n="${f%.*}";ex="${f##*.}";t="/media/some/sophie-hhd1/books/thrill/$n.epub"; if [ -f "$t" ]; then echo "exists $t" ; else ebook-convert "$a" "$t";fi; '
+
+
